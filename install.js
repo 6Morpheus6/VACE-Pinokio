@@ -30,9 +30,47 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "uv pip install gradio devicetorch",
-          "uv pip install -r requirements.txt"
+          "uv pip install -r requirements.txt",
+          "uv pip install wan@git+https://github.com/Wan-Video/Wan2.1",
+          "uv pip install ltx-video@git+https://github.com/Lightricks/LTX-Video@ltx-video-0.9.1 sentencepiece --no-deps",
+          "pip install -r requirements/annotator.txt"
         ]
+      }
+    },
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "ali-vilab/VACE-Benchmark" ],
+        "exclude": '".gittatributes" "*.md"',
+        "local-dir": "benchmarks",
+      }
+    },
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "ali-vilab/VACE-Annotators" ],
+        "exclude": '".gittatributes" "*.md"',
+        "local-dir": "models",
+      }
+    },
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "ali-vilab/VACE-Wan2.1-1.3B-Preview" ],
+        "exclude": '".gittatributes" "*.md" "*.txt"',
+        "local-dir": "models",
+      }
+    },
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "ali-vilab/VACE-LTX-Video-0.9" ],
+        "exclude": '".gittatributes" "*.md" "*.txt"',
+        "local-dir": "models",
       }
     },
   ]
