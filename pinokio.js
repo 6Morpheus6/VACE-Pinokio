@@ -8,7 +8,9 @@ module.exports = {
     let installed = info.exists("app/env")
     let running = {
       install: info.running("install.js"),
-      start: info.running("start.js"),
+      start_pre: info.running("start_pre.js"),
+      start_wan: info.running("start_pre.js"),
+      start_ltx: info.running("start_pre.js"),
       update: info.running("update.js"),
       reset: info.running("reset.js"),
       link: info.running("link.js")
@@ -21,8 +23,8 @@ module.exports = {
         href: "install.js",
       }]
     } else if (installed) {
-      if (running.start) {
-        let local = info.local("start.js")
+      if (running.start_pre) {
+        let local = info.local("start_pre.js")
         if (local && local.url) {
           return [{
             default: true,
@@ -32,14 +34,56 @@ module.exports = {
           }, {
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
-            href: "start.js",
+            href: "start_pre.js",
           }]
         } else {
           return [{
             default: true,
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
-            href: "start.js",
+            href: "start_pre.js",
+          }]
+        }
+      } else if (running.start_wan) {
+        let local = info.local("start_wan.js")
+        if (local && local.url) {
+          return [{
+            default: true,
+            icon: "fa-solid fa-rocket",
+            text: "Open Web UI",
+            href: local.url,
+          }, {
+            icon: 'fa-solid fa-terminal',
+            text: "Terminal",
+            href: "start_wan.js",
+          }]
+        } else {
+          return [{
+            default: true,
+            icon: 'fa-solid fa-terminal',
+            text: "Terminal",
+            href: "start_wan.js",
+          }]
+        }
+      } else if (running.start_ltx) {
+        let local = info.local("start_ltx.js")
+        if (local && local.url) {
+          return [{
+            default: true,
+            icon: "fa-solid fa-rocket",
+            text: "Open Web UI",
+            href: local.url,
+          }, {
+            icon: 'fa-solid fa-terminal',
+            text: "Terminal",
+            href: "start_ltx.js",
+          }]
+        } else {
+          return [{
+            default: true,
+            icon: 'fa-solid fa-terminal',
+            text: "Terminal",
+            href: "start_ltx.js",
           }]
         }
       } else if (running.update) {
@@ -67,8 +111,16 @@ module.exports = {
         return [{
           default: true,
           icon: "fa-solid fa-power-off",
-          text: "Start",
-          href: "start.js",
+          text: "Start Preprocessor",
+          href: "start_pre.js",
+        }, {
+          icon: "fa-solid fa-power-off",
+          text: "Start Preprocessor",
+          href: "start_wan.js",
+        }, {
+          icon: "fa-solid fa-power-off",
+          text: "Start Preprocessor",
+          href: "start_ltx.js",
         }, {
           icon: "fa-solid fa-plug",
           text: "Update",
