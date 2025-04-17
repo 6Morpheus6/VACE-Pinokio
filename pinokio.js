@@ -109,7 +109,6 @@ module.exports = {
         }]
       } else {
         return [{
-          default: true,
           icon: "fa-solid fa-power-off",
           text: "Start Preprocessor",
           href: "start_pre.js",
