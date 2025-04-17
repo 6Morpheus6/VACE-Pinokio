@@ -114,11 +114,11 @@ module.exports = {
           href: "start_pre.js",
         }, {
           icon: "fa-solid fa-power-off",
-          text: "Start Preprocessor",
+          text: "Start WAN",
           href: "start_wan.js",
         }, {
           icon: "fa-solid fa-power-off",
-          text: "Start Preprocessor",
+          text: "Start LTX",
           href: "start_ltx.js",
         }, {
           icon: "fa-solid fa-plug",
