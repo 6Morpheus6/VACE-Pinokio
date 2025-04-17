@@ -8,7 +8,7 @@ module.exports = {
         env: { },                   // Edit this to customize environment variables (see documentation)
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "python vace/gradios/preprocess_demo.py",    // Edit with your custom commands
+          "python vace/gradios/vace_preproccess_demo.py --server_name localhost",    // Edit with your custom commands
         ],
         on: [{
           // The regular expression pattern to monitor.
