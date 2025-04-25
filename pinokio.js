@@ -2,15 +2,15 @@ const path = require('path')
 module.exports = {
   version: "3.7",
   title: "VACE",
-  description: "",
+  description: "All-in-One Video Creation and Editing. Move-Anything, Swap-Anything, Reference-Anything, Expand-Anything, Animate-Anything.",
   icon: "icon.png",
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")
     let running = {
       install: info.running("install.js"),
       start_pre: info.running("start_pre.js"),
-      start_wan: info.running("start_pre.js"),
-      start_ltx: info.running("start_pre.js"),
+      start_wan: info.running("start_wan.js"),
+      start_ltx: info.running("start_ltx.js"),
       update: info.running("update.js"),
       reset: info.running("reset.js"),
       link: info.running("link.js")
