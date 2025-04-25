@@ -46,6 +46,7 @@ module.exports = {
         path: "app",
         "_": [ "ali-vilab/VACE-Benchmark" ],
         "exclude": '".gittatributes" "*.md"',
+        "repo-type": "dataset",
         "local-dir": "benchmarks",
       }
     },
